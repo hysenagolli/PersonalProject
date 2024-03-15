@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--home-123:03  -->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>EducationPress - The Most Complete Education Solution</title>
+
+    <link rel="shortcut icon" href="/static/images/favicon.png" />
+
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+  
+    <link rel="stylesheet" href="/static/css/linearicons-free.css">
+  
+    <link rel="stylesheet" href="/static/css/animate.css">
+  
+    <link rel="stylesheet" href="/static/vendor/flexslider/flexslider.css">
+  
+    <link rel="stylesheet" href="/static/vendor/owlcarousel/owl.carousel.css">
+  
+    <link rel="stylesheet" href="/static/vendor/fancybox/css/fancybox.css">
+  
+    <link rel="stylesheet" href="/static/css/global.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/kindergarten.css">
+  </head>
+  
+  <body>
+  
+    <div class="header_meta header_meta_one">
+      <div class="container">
+        <div class="row">
+          <ul class="social">
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+          </ul>
+          <nav class="meta-login">
+            <ul>
+              <div>
+                <div class="ml-auto">
+                  <a href="/logout" class="btn btn-primary border-width-2 d-none d-lg-inline-block"><span
+                      class="mr-2 icon-lock_outline"></span>Log Out</a>
+                </div>
+              </div>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  
+    <header class="site-header home-one" id="masthead">
+      <div class="container">
+        <div class="row">
+  
+          <div class="site-branding col-xs-12 col-sm-3"> <a href="/dashboard"><img alt="educationpress" class="brand"
+                src="/static/images/logo5.png" /></a> </div>
+  
+  
+          <nav class="main-navigation navbar navbar-default" id="site-navigation">
+            <div class="navbar-header">
+              <button data-target=".navbar-ex1-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul class="nav navbar-nav">
+                <li class="dropdown active">
+                  <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false" href="/dashboard">
+                    Home <span class="caret"></span></a>
+                 
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false" href="home-1.html#">
+                    Classes <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="/classes">Classes 2 Columns List</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false" href="#">
+                    Events <span class="caret"></span></a>
+                    
+                  <ul class="dropdown-menu" role="menu">
+                   
+                    <li><a href="/events">Event Listen</a></li>
+                    {% for event in events %}
+                    <li><a href="/event/{{event.id}}">Event Detail</a></li>
+                    {% endfor  %}
+  
+                    <li><a href="/events/new">Event Create</a></li>
+                  </ul>
+                </li>
+                </li>
+                
+              </ul>
+            </div>
+          </nav>
+
+          <div class="page-spacer clearfix">
+            <div id="primary" class="content-area">
+              <div class="container">
+                <div class="row">
+                  <main id="main" class="site-main col-xs-12">
+                    <div class="col-xs-12 col-sm-6 login-form form">
+                      <form action="/event/update/{{event.id}}" method="post" class="w-50 m-auto mt-5">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" value="{{event.title}}" name="title" class="form-control" id="title" >
+                      {% with messages = get_flashed_messages(category_filter=["title"]) %}
+                      {% if messages %}
+                          
+                          {% for message in messages %}
+                          <p class="text-danger text-center">{{ message }}</p>
+                          {% endfor %}
+                          
+                      {% endif %}
+                      {% endwith %}
+                        <label for="description" class="form-label">Event Description</label>
+                        <textarea name="description" id="description" cols="30" rows="5" class="form-control">{{event.description}}</textarea>
+                      
+                      {% with messages = get_flashed_messages(category_filter=["description"]) %}
+                      {% if messages %}
+                          
+                          {% for message in messages %}
+                          <p class="text-danger text-center">{{ message }}</p>
+                          {% endfor %}
+                          
+                      {% endif %}
+                      {% endwith %}
+                   
+                        <label for="deadline">Deadline</label>
+                        <input type="date" class="form-control" value="{{event.deadline}}" placeholder="Deadline Date" name="deadline">
+                     
+
+                        
+                    
+            
+                    <button type="submit" class="btn btn-primary">Update Event</button>
+                  </form>
+                    </div>
+                  </main>
+                </div>
+              </div>
+            </div>
+          </div>
+
+  
+
+      
+    
+
+</body>
+</html>

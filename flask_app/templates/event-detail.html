@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--event-detail23:38  -->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>EducationPress - The Most Complete Education Solution</title>
+
+
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+<![endif]-->
+<link rel="shortcut icon" href="/static/images/favicon.png" />
+
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/static/css/linearicons-free.css">
+
+<link rel="stylesheet" href="/static/css/animate.css">
+
+<link rel="stylesheet" href="/static/vendor/flexslider/flexslider.css">
+
+<link rel="stylesheet" href="/static/vendor/owlcarousel/owl.carousel.css">
+
+<link rel="stylesheet" href="/static/vendor/fancybox/css/fancybox.css">
+
+<link rel="stylesheet" href="/static/css/global.css">
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/kindergarten.css">
+
+</head>
+
+<body>
+
+
+  <div class="header_meta header_meta_one">
+    <div class="container">
+      <div class="row">
+        <ul class="social">
+          <li><a href="home-1.html#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="home-1.html#"><i class="fa fa-facebook-square"></i></a></li>
+          <li><a href="home-1.html#"><i class="fa fa-linkedin-square"></i></a></li>
+          <li><a href="home-1.html#"><i class="fa fa-pinterest"></i></a></li>
+          <li><a href="home-1.html#"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="home-1.html#"><i class="fa fa-youtube"></i></a></li>
+        </ul>
+        <nav class="meta-login">
+          <ul>
+            <div>
+              <div class="ml-auto">
+                <a href="/logout" class="btn btn-primary border-width-2 d-none d-lg-inline-block"><span
+                    class="mr-2 icon-lock_outline text-white"></span>Log Out</a>
+              </div>
+            </div>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header home-one" id="masthead">
+    <div class="container">
+      <div class="row">
+
+        {% if session['teacher_id'] == teacher_id %}
+				<div class="site-branding col-xs-12 col-sm-3"> <a href="/dashboardStudent"><img alt="educationpress" class="brand"
+					  src="/static/images/logo5.png" /></a> </div>
+		
+					  {% endif %}
+					  {% if session['student_id'] == student_id %}
+				<div class="site-branding col-xs-12 col-sm-3"> <a href="/dashboard"><img alt="educationpress" class="brand"
+					  src="/static/images/logo5.png" /></a> </div>
+		
+					  {% endif %}
+        <nav class="main-navigation navbar navbar-default" id="site-navigation">
+          <div class="navbar-header">
+            <button data-target=".navbar-ex1-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+              <li class="dropdown active">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                  aria-expanded="false" href="#">
+                  Home <span class="caret"></span></a>
+               
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                  aria-expanded="false" href="#">
+                  Classes <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="classes-2-columns.html">Classes 2 Columns List</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                  aria-expanded="false" href="#">
+                  Events <span class="caret"></span></a>
+                  
+                <ul class="dropdown-menu" role="menu">
+                 
+                  <li><a href="/events">Event Listen</a></li>
+                  {% if session['teacher_id'] == event.teacher_id %}
+                  <li><a href="/events/new">Event Create</a></li>
+                  {% endif %}
+                </ul>
+              </li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                  aria-expanded="false" href="/gallery">
+                  Pages <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="/aboutus">About Us</a></li>
+
+                  <li><a href="/gallery">Gallery</a></li>
+              
+                  <li><a href="/error">404 Error</a></li>
+                  
+              
+                  <li><a href="#">Edit Profile</a></li>
+                </ul>
+              </li>
+              
+              
+            </ul>
+          </div>
+        </nav>
+
+      </div>
+
+    </div>
+
+  </header>
+  <div class="breadcrumb-section">
+    <div class="container">
+      <div class="row">
+        <header class="entry-header">
+          <h1>Events</h1>
+        </header>
+      </div>
+    </div>
+  </div>
+  <form action="/createproject" method=post enctype=multipart/form-data class="edit-profile m-b30">
+  <div class="form-group width-50 ">
+    <label for="file_post">upload project:</label>
+    <input type="file" name="file_post" class="form-control">
+    <button type="submit" value=Upload class="btn btn-secondary">upload</button>
+    </div>
+  </form >
+  <div class="page-spacer clearfix">
+    <div id="primary">
+      <div class="container">
+        <div class="row">
+          <main id="main" class="site-main col-xs-12 col-sm-8 left-block">
+            <article id="event-id" class="events">
+
+              <figure>
+                <img src="/static/images/use_img/blog_img1.jpg" alt="" />
+              </figure>
+              
+              {% if session['teacher_id'] == event.teacher_id %}
+              <a href="/event/edit/{{event.id}}" class="btn btn-primary my-1">Edit event</a>
+              <a href="/event/delete/{{event.id}}" class="btn btn-primary my-1">Delete event</a>
+              {% endif %}
+              
+              <div class=" events-info ">
+                <img src="../static/UPLOAD_FOLDER/{{event.event_images}}"
+									alt="Profile Picture" class="img-fluid rounded-circle profile-pic-user">
+                <h3>{{ event.title}}</h3>
+                <p class="location"><i class="lnr lnr-map-marker"></i> {{ event.description}}</p>
+                <ul class="events-time">
+                  <li><span>{{ event.deadline}}</span>
+                    Date </li>
+                  <li><span>09:00 AM</span>
+                    Time</li>
+                </ul>
+                <div class="card-body">
+                  
+                  <p class="btn btn-outline-primary" onmouseenter="displayLikes()" onmouseleave="hideLikes()">Likes: {{likes}}</p>
+                  
+                  <div>
+                      
+                      <a href="/remove/like/{{event.id}}" class="btn btn-info">Unlike</a>
+                      <a href="/add/like/{{event.id}}" class="btn btn-success">Like</a>
+                     
+                  </div>
+                  <div class="studentWhoLiked">
+                      {% for student in event.likes %}
+                      <p>{{student.first_name}} {{student.last_name}}</p>
+                      {% endfor %}
+                  </div>
+
+                 
+              </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                <h4 class="text-center">Add your comment</h4>
+                <form action="/add/comment/{{event.id}}" method="post">
+                    <label for="comment">Comment</label>
+                    <textarea class="form-control" name="comment" id="comment" cols="30" rows="3"></textarea>
+                    {% with messages = get_flashed_messages(category_filter=["comment"]) %}
+                    {% if messages %}
+    
+                    {% for message in messages %}
+                    <p class="text-danger text-center">{{ message }}</p>
+                    {% endfor %}
+    
+                    {% endif %}
+                    {% endwith %}
+                    <button class="btn btn-success mt-2">Add</button>
+                </form>
+                <h2 class="text-center">Comments</h2>
+               
+                {% for commenti in comments %}
+                <div class="border border-1">
+                    <p>Commenti: {{commenti.comment}}</p>
+                    <p>Created: {{commenti.created_at.strftime('%Y-%m-%d')}}</p>
+                    {% if commenti.student_id == session['student_id'] %}
+                  
+                    <a href="/delete/comment/{{commenti.id}}" class="btn btn-danger">Delete</a>
+                    
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+              <div class="google-map-wrapper">
+
+                <div id="mapBox" class="row m0" data-lat="37.3818288" data-lon="-122.0636325" data-zoom="15"
+                  data-marker="images/map-marker.html"></div>
+              </div>
+            </article>
+          </main>
+          <div id="secondary" class="col-xs-12 col-sm-4 pull-right">
+            <aside class="widget widget_search" id="search">
+              <form action="event-detail.html#" class="search-form" method="get">
+                <input type="search" title="Search for:" name="s" value="" placeholder="Search …" class="search-field">
+                <input type="submit" value="Search" class="search-submit btn btn-default">
+              </form>
+            </aside>
+            <aside class="widget widget_categories">
+              <h3 class="widget-title">Categoreis</h3>
+              <ul>
+                <li><a href="event-detail.html#">HTML5 and CSS3</a> (1) </li>
+                <li><a href="event-detail.html#">Java Script Development</a> (1) </li>
+                <li><a href="event-detail.html#">Music</a> (2) </li>
+                <li><a href="event-detail.html#">News</a> (2) </li>
+                <li><a href="event-detail.html#">Online Courses</a> (9) </li>
+                <li><a href="event-detail.html#">Web Development</a> (2) </li>
+              </ul>
+            </aside>
+            <aside class="widget widget_events" id="educationpress_recent_events_widget-3">
+              <h3 class="widget-title">Recent Events</h3>
+              <ul>
+                <li class="clearfix"> <img alt="" src="images/use_img/widget-thumb.jpg" />
+                  <div class="simi-co">
+                    <h5><a href="event-detail.html#">Build Apps with React Native</a></h5>
+                    <p>August 15, 2015 </p>
+                  </div>
+                </li>
+                <li class="clearfix"> <img alt="" src="images/use_img/widget-thumb.jpg" />
+                  <div class="simi-co">
+                    <h5><a href="event-detail.html#">IOS App Development</a></h5>
+                    <p>August 15, 2015 </p>
+                  </div>
+                </li>
+                <li class="clearfix"> <img alt="" src="images/use_img/widget-thumb.jpg" />
+                  <div class="simi-co">
+                    <h5><a href="event-detail.html#">CSS Development (with CSS3!)</a></h5>
+                    <p>August 15, 2015 </p>
+                  </div>
+                </li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="call-to-action">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="col-xs-12 col-sm-8">
+            <h3>Remaining essentially unchanged.</h3>
+            <p>When an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          </div>
+          <a href="event-detail.html#" class="btn btn-medium btn-default pull-right">Know More <i
+              class="lnr lnr-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="site-footer" id="colophon">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4"><img src="images/logo5.png" alt="" /></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 footer-widget">
+          <aside class="widget widget_text">
+            <div class="textwidget">
+              The point of using Lorem Ipsum is that it has a more or less normal distribution of letters, as opposed to
+              using
+              'Content here, content here', making it look like readable English.
+            </div>
+          </aside>
+          <aside class="widget socialmedia-widget">
+            <ul class="social">
+              <li><a href="event-detail.html#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="event-detail.html#"><i class="fa fa-facebook-square"></i></a></li>
+              <li><a href="event-detail.html#"><i class="fa fa-linkedin-square"></i></a></li>
+              <li><a href="event-detail.html#"><i class="fa fa-pinterest"></i></a></li>
+              <li><a href="event-detail.html#"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="event-detail.html#"><i class="fa fa-youtube"></i></a></li>
+            </ul>
+          </aside>
+        </div>
+        <div class="col-xs-12 col-sm-4 footer-widget">
+          <aside class="widget widget_nav_menu">
+            <ul class="menu">
+              <li><a href="event-detail.html#">Home</a></li>
+              <li><a href="event-detail.html#">Shortcodes</a></li>
+              <li><a href="event-detail.html#">about US</a></li>
+              <li><a href="event-detail.html#">Blog</a></li>
+              <li><a href="event-detail.html#">classes</a></li>
+              <li><a href="event-detail.html#">Contact US</a></li>
+              <li><a href="event-detail.html#">Teachers</a></li>
+              <li><a href="event-detail.html#">Privacy Policy</a></li>
+              <li><a href="event-detail.html#">Events</a></li>
+            </ul>
+          </aside>
+        </div>
+        <div class="col-xs-12 col-sm-4 footer-widget">
+          <aside class="widget newsletter-widget">
+            <h3>Sign up now</h3>
+            <p>When an printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <form id="newsletter">
+              <input type="email" name="email" class="form-control" placeholder="Email" />
+              <button type="submit" value="" class="btn btn-orange btn-medium"><i
+                  class="lnr lnr-arrow-right"></i></button>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="copyright">
+
+            <p class="develop col-xs-12 col-sm-4 text-right"><a target="_blank"
+                href="https://www.templateshub.net">Templates Hub</a> </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <div id="login-form" style="display:none;">
+    <div class="row">
+      <h3>Login</h3>
+      <p>Please Login to Create a New Course</p>
+      <form id="login" action="event-detail.html#">
+        <input name="email" type="text" placeholder="Email or Username">
+        <input name="password" type="text" placeholder="Password">
+        <div class="row remeber">
+          <label><input name="rember" type="checkbox" value=""> Remember Me</label>
+          <a href="event-detail.html#">Forgot Password?</a>
+        </div>
+        <div class="text-center button">
+          <input name="Login" type="button" value="Login Now">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="register-form" style="display:none;">
+    <div class="row">
+      <h3>Register</h3>
+      <p>Please Register to Create a New Account</p>
+      <form id="register" action="event-detail.html#">
+        <input name="name" type="text" placeholder="Name">
+        <input name="username" type="text" placeholder="Username">
+        <input name="email" type="text" placeholder="Email">
+        <input name="password" type="text" placeholder="Password">
+        <input name="confirmpassword" type="text" placeholder="Confirm Password">
+        <div class="row new-login">
+          Already have an account? <a href="event-detail.html#">Login to your account! </a>
+        </div>
+        <div class="text-center button">
+          <input name="create-account" type="button" value="Create an Account">
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="vendor/countdown/js/jquery.plugin.min.js"></script>
+  <script type="text/javascript" src="vendor/countdown/js/jquery.countdown.min.js"></script>
+
+  <script src="js/theme.js"></script>
+
+  <script type="text/javascript" src="vendor/fancybox/js/jquery.fancybox.js"></script>
+  <script type="text/javascript" src="vendor/fancybox/js/custom.fancybox.js"></script>
+  <script>
+    jQuery.noConflict();
+    jQuery('.fancybox').fancybox();
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?callback=mapBox"></script>
+  <script>
+    likesDiv = document.querySelector('.studentWhoLiked')
+    likesDiv.style.display = 'none'
+
+    function displayLikes() {
+        likesDiv = document.querySelector('.studentWhoLiked')
+        likesDiv.style.display = 'block'
+    }
+    function hideLikes() {
+        likesDiv = document.querySelector('.studentWhoLiked')
+        likesDiv.style.display = 'none'
+    }
+
+</script>
+</body>
+
+<!--event-detail23:48  -->
+
+</html>
